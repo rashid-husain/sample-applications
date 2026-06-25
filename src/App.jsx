@@ -12,7 +12,7 @@ function App() {
         <div>
           <p className="firstName">Rufayda Khatoon</p>
           <p id="lastName">Shaista Khatoon</p>
-          <h1 className="lastName">Nahida Khatoon</h1>
+          <h1>Nahida Khatoon</h1>
           <p>Count: {count}</p>
           <div className="button-spacer">
             <button className="button" onClick={() => setCount((count) => count + 1)}>
