@@ -1,0 +1,30 @@
+/* selectors (id, class, tagNames) */
+.firstName {
+  color: red;
+}
+
+#lastName {
+  color: blue;
+}
+h1 {
+  color: #61dafb;
+}
+
+.button-spacer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: row;
+  width: 50%;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: column;
+  width: 100%;
+  padding: 2rem;
+}
