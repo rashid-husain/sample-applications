@@ -1,8 +1,8 @@
-const support=()=>{
+const Support=()=>{
     return(
         <>
         <h1>For any kind of support we are always available here</h1>
         </>
     )
 }
-export default support;
+export default Support;

@@ -1,15 +1,18 @@
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react'
 import './App.css'
 import'./header.css'
 import Header from './header'
-import home from'./pages/home';
-import about from'./pages/about';
-import contact from './pages/contact';
-import careers from './pages/careers';
-import blogs from './pages/blogs';
-import faq from './pages/faq';
-import services from './pages/services';
-import support from './pages/support';
+import About from './pages/about';
+import Contact from './pages/contact';
+import Careers from './pages/careers';
+import Blogs from './pages/blogs';
+import FAQ from './pages/faq';
+import Services from './pages/services';
+import Support from './pages/support';
+import Home from './pages/home';
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,7 +22,17 @@ function App() {
       <Header />
       <div className="main-container">
         <div>
-          <p className="firstName">Rufayda Khatoon</p>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/support" element={<Support />} />
+          </Routes>
+          {/* <p className="firstName">Rufayda Khatoon</p>
           <p id="lastName">Shaista Khatoon</p>
           <h4>Nahida Khatoon</h4>
           <h4>Rashid Husain</h4>
@@ -31,7 +44,7 @@ function App() {
             <button className="button" onClick={() => setCount((count) => count - 1)}>
               -
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

@@ -1,7 +1,7 @@
-const blogs=()=>{
+const Blogs=()=>{
     return(
         <>
         <h1>Blogs post</h1></>
     )
 }
-export default blogs;
+export default Blogs;
