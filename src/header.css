@@ -1,0 +1,28 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+.topnav{
+    background-color:green;
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    padding:15px;
+    margin:15px;
+}
+.topnav a{
+    
+    font-family:arial;
+    color:white;
+    font-size:20px;
+    border-radius:5px;
+
+}
+.topnav a:hover{
+    background-color:blue;
+    color:white;
+}
+.a:active{
+    color:yellow;
+}

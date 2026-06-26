@@ -6,8 +6,9 @@
 #lastName {
   color: blue;
 }
-h1 {
-  color: #61dafb;
+h4 {
+  color: #173e48;
+  
 }
 
 .button-spacer {
@@ -17,6 +18,7 @@ h1 {
   gap: 1rem;
   flex-direction: row;
   width: 50%;
+  
 }
 
 .main-container {
