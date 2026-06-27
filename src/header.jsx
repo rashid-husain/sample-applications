@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Button from '@mui/material/Button';
+import logo from "../assets/logo.jpeg";
+
+import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { AppBar, Avatar, Box, Container, IconButton, Toolbar, Tooltip, Typography } from '@mui/material';
@@ -33,6 +35,7 @@ const Header = () => {
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
+  
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
@@ -62,6 +65,7 @@ const Header = () => {
   console.log("ForEach Pages: ", forEachpages);
 
   return (
+    
     <>
       {/* <div className="topnav">
         <Link to="/">Home</Link>
@@ -72,24 +76,31 @@ const Header = () => {
         <Link to="/faq">FAQ</Link>
         <Link to="/services">Services</Link>
         <Link to="/support">Support</Link>
-        <Button
-          id={buttonId}
-          aria-controls={open ? menuId : undefined}
-          aria-haspopup="true"
-          aria-expanded={open}
-          onClick={handleClick}
-        >
-          Profile
-        </Button>
-      </div>
+       
+        <IconButton
+        aria-label="more"
+        id="long-button"
+        aria-controls={open ? 'long-menu' : undefined}
+        aria-expanded={open}
+        aria-haspopup="true"
+        onClick={handleClick}
+      >
+        <MoreVertIcon />
+      </IconButton>
       <Menu
-        id={menuId}
+        id="long-menu"
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
         slotProps={{
+          paper: {
+            style: {
+              maxHeight: ITEM_HEIGHT * 4.5,
+              width: '20ch',
+            },
+          },
           list: {
-            'aria-labelledby': buttonId,
+            'aria-labelledby': 'long-button',
           },
         }}
       >
