@@ -64,47 +64,7 @@ const Header = () => {
   return (
     
     <>
-      {/* <div className="topnav">
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
-        <Link to="/careers">Careers</Link>
-        <Link to="/blogs">Blogs</Link>
-        <Link to="/faq">FAQ</Link>
-        <Link to="/services">Services</Link>
-        <Link to="/support">Support</Link>
-       
-        <IconButton
-        aria-label="more"
-        id="long-button"
-        aria-controls={open ? 'long-menu' : undefined}
-        aria-expanded={open}
-        aria-haspopup="true"
-        onClick={handleClick}
-      >
-        <MoreVertIcon />
-      </IconButton>
-      <Menu
-        id="long-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        slotProps={{
-          paper: {
-            style: {
-              maxHeight: ITEM_HEIGHT * 4.5,
-              width: '20ch',
-            },
-          },
-          list: {
-            'aria-labelledby': 'long-button',
-          },
-        }}
-      >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
-      </Menu> */}
+      
 
 
       <AppBar position="static">
