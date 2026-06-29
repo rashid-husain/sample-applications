@@ -1,0 +1,25 @@
+.support-box {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 280px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.2);
+}
+
+.btn {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.whatsapp {
+  background: #25D366;
+}

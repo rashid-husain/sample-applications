@@ -1,11 +1,12 @@
 
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
-const Home = () => {
-    return (
-        function App() {
+
+        
           function StandardImageList() {
           return (
+            
+        
             <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
               {itemData.map((item) => (
                 <ImageListItem key={item.img}>
@@ -18,9 +19,12 @@ const Home = () => {
                 </ImageListItem>
               ))}
             </ImageList>
+            
           );
         }
-        const itemData = [
+  
+        
+    const itemData = [
          
           {
             img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
@@ -72,14 +76,17 @@ const Home = () => {
           },
         ];
         
+const Home = () => {
+    return (
+        
+          
         <>  
         <h1>Home</h1>
         <p>Welcome to the Home page!</p>
         </>
-    
-    }  
-        
+      
     )
 }
 
-export default Home;
+export default StandardImageList;
+//export default Home;
