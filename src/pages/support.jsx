@@ -1,5 +1,6 @@
 import React from "react";
- function SupportBox() {
+ 
+function SupportBox() {
   return (
     <div className="support-box">
       <h3>Need Help?</h3>
@@ -22,12 +23,12 @@ import React from "react";
 }
 
 
-/*const Support=()=>{
+const Support=()=>{
     return(
         <>
         <h1>For any kind of support we are always available here</h1>
         </>
     )
-}*/
-//xport default Support;
-export default SupportBox;
+}
+ // export default Support;
+ export default SupportBox;

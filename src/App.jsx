@@ -3,15 +3,16 @@ import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react'
 import './App.css'
 import'./header.css'
+import './pages/support.css';
 import Header from './header'
 import About from './pages/about';
 import Contact from './pages/contact';
-import Careers from './pages/career';
-import Blogs from './pages/blog';
+import Career from './pages/career';
+import Blog from './pages/blog';
 import FAQ from './pages/faq';
 import Services from './pages/services';
-//import Support from './pages/support';
-import SupportBox from './pages/support';
+import Support from './pages/support';
+import SupportBox from "./pages/support";
 import StandardImageList from"./pages/home";
 
  
@@ -30,8 +31,8 @@ function App() {
             <Route path="/" element={<StandardImageList />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/careers" element={<Careers />} />
-            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/career" element={<Career />} />
+            <Route path="/blog" element={<Blog />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/services" element={<Services />} />
             <Route path="/support" element={<Support />} />
