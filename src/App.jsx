@@ -13,7 +13,7 @@ import FAQ from './pages/faq';
 import Services from './pages/services';
 import Support from './pages/support';
 import SupportBox from "./pages/support";
-import StandardImageList from"./pages/home";
+import Home from"./pages/home";
 
  
 
@@ -28,7 +28,7 @@ function App() {
       <div className="main-container">
         <div>
           <Routes>
-            <Route path="/" element={<StandardImageList />} />
+            <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/career" element={<Career />} />

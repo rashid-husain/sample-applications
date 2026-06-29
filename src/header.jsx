@@ -42,24 +42,24 @@ const Header = () => {
     setAnchorElUser(null);
   };
 
-  console.log("Old For Loop: ");
-  for (let i = 0; i < pages.length; i++) {
-    console.log(pages[i].name, pages[i].path);
-  }
+  // console.log("Old For Loop: ");
+  // for (let i = 0; i < pages.length; i++) {
+  //   console.log(pages[i].name, pages[i].path);
+  // }
 
-  console.log("New For Loop: ForEach: ");
-  const forEachpages = pages.forEach((page) => {
-    console.log(page.name, page.path);
-  });
+  // console.log("New For Loop: ForEach: ");
+  // const forEachpages = pages.forEach((page) => {
+  //   console.log(page.name, page.path);
+  // });
 
-  console.log("New For Loop: Map: ");
-  const mappedPages = pages.map((page) => {
-    console.log(page.name, page.path);
-    return page;
-  });
+  // console.log("New For Loop: Map: ");
+  // const mappedPages = pages.map((page) => {
+  //   console.log(page.name, page.path);
+  //   return page;
+  // });
 
-  console.log("Mapped Pages: ", mappedPages);
-  console.log("ForEach Pages: ", forEachpages);
+  // console.log("Mapped Pages: ", mappedPages);
+  // console.log("ForEach Pages: ", forEachpages);
 
   return (
     

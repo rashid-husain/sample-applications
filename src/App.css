@@ -10,6 +10,7 @@ h4 {
   color: #173e48;
   
 }
+*/
 
 .button-spacer {
   display: flex;
@@ -22,11 +23,9 @@ h4 {
 }
 
 .main-container {
+  margin: 20px;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
-  flex-direction: column;
-  width: 100%;
-  padding: 2rem;
-}*/
+}
