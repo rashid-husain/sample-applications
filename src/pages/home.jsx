@@ -98,7 +98,7 @@ const Home = () => {
 
   const handleClick = () => {
 
-    setNewSum(a + b + 5); // Example of updating the sum
+    setNewSum(a +b+5); // Example of updating the sum
     // console.log('Button clicked!');
     // setNewSum(a + b + 5); // Example of updating the sum
     // let temp = "Rashid Husain";
@@ -143,6 +143,7 @@ const Home = () => {
 
       <form onSubmit={handleSubmit}>
         <div style={{ display: 'flex', flexDirection: 'column', width: '300px', gap: '10px' }}>
+          
           <label>First Name:</label>
           <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
           <label>Last Name:</label>
@@ -151,7 +152,9 @@ const Home = () => {
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
           <label>Contact:</label>
           <input type="Number" max="9999999999" value={contact} onChange={(e) => setContact(e.target.value)} />
-          <button type="submit">Submit</button>
+          <button type="submit" >Submit</button>
+        
+
         </div>
       </form >
 
@@ -167,7 +170,7 @@ const Home = () => {
         </div>
       )}
 
-      {/* <StandardImageList /> */}
+       {/*<StandardImageList /> */}
 
       {/* flexbox layout examples */}
 
