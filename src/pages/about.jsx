@@ -1,4 +1,11 @@
+import { useEffect, useState } from "react";
+
 const About = () => {
+
+    useEffect(() => {
+        console.log('About Mounted');
+    }, []);
+
 
     // Definition of a variable 
     const a = 'Hello, World!';
@@ -81,10 +88,115 @@ const About = () => {
 
     
 
+
+    // Ternary operator
+    // condition ? expressionIfTrue : expressionIfFalse
+    16 > 17 ? console.log('You can vote') : console.log('You cannot vote, because you are not an adult yet.');
+    25 > 18 ? console.log('You can vote') : console.log('You cannot vote, because you are not an adult yet.');
+
+    const passingScore = 75;
+    
+    (passingScore > 59.9) ? console.log('you are pass first division') : console.log('you are not pass first division.');
+   
+   (passingScore > 60 && passingScore <= 70) ? console.log('we will plan a trip to Lucknow') : console.log('We will not plan a trip to Gorakhpur.');
+
+    (passingScore > 70 && passingScore <= 80) ? console.log('we will plan a trip to Delhi') : console.log('We will not plan a trip to Lucknow.');
+    
+    const isAdult = age >= 18 ? 'Yes, You can vote' : 'No, you cannot vote, because you are not an adult yet.';
+    console.log('Is Adult:', isAdult);
+
+    const Table = () => {
+        return (
+        //  fragment
+            <>
+                <table cellPadding={5} cellSpacing={5} border={1}>
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Age</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {/* employeeDetails.map(item => {
+                            return (
+                            <tr>
+                              <td>  {item.id} </td>
+                               <td>  {item.name} </td>
+                               <td>  {item.role} </td>
+                               <td>  {item.age} </td>
+                            </tr>
+                            )
+                        }) */}
+                    <tr>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>Developer</td>
+                        <td>30</td>
+                    </tr>
+                    </tbody>
+
+                </table>
+
+                <p>
+                    This is the table Component
+                    </p>
+
+                <button style={{ width: '100px', height: '100px', padding: '5px', border: '1px solid gray', borderRadius: '5px', backgroundColor: 'lightgray' }} onClick={() => alert(props.message)}>Table Button</button>
+            </>
+        );
+    }
+
+    const WelcomeButton = (props) => {
+
+        useEffect(() => {
+            console.log('WelcomeButton Mounted');   
+            console.log('Button Props:', props);
+        });
+
+        useEffect(() => {
+            console.log('WelcomeButton Mounted');   
+            console.log('Button Props:', props);
+        }, []);
+
+        return (
+            <button style={{width: '100px', height:'100px', padding:'5px', border:'1px solid gray', borderRadius:'5px', backgroundColor:'lightgray'}} onClick={() => alert(props.message)}>{props.name}</button>
+        );
+    }
+
+    const Counter = () => {
+        const [count, setCount] = useState(0);
+
+        useEffect(() => {
+            console.log('Counter Mounted');
+        }, []); // This useEffect will run only once when the component mounts, because it has an empty dependency array
+
+        useEffect(() => {
+            console.log('Counter Updated:', count);
+        }) // This useEffect will run on every render, because it has no dependency array
+
+        useEffect(() => {
+            console.log('Counter Updated with new value of the count state:', count);
+        }, [count]); // condition expression of useEffect hook, it will run only when count changes
+
+        return (
+            <div>
+                <p>Count: {count}</p>
+                <button onClick={() => setCount(count + 1)}>Increment</button>
+                <button onClick={() => setCount(count - 1)}>Decrement</button>
+            </div>
+        );
+    }
+
     
     return (
         <>
-        <h1>do you wants to know the purpose of this website?</h1>
+            <h1>do you wants to know the purpose of this website?</h1>
+            
+            <Table />
+            <WelcomeButton name="Click Me" message="Welcome!" />
+            <Counter />
         </>
     )
 }
