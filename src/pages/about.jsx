@@ -66,6 +66,20 @@ const About = () => {
     });
 
     console.log('Filtered Data:', filteredData);
+     
+
+    const arr=[1,2,3,4,5,6];
+   /* const newArr=arr.filter((val)=>{
+        return (val>3);
+    })
+    console.log('newArr',newArr);*/
+    /*const Mapped=arr.map((val)=>{
+        return val;
+    })
+    console.log('Mapped',Mapped);*/
+
+
+    
 
     
     return (
