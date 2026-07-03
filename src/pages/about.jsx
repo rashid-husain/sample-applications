@@ -8,7 +8,7 @@ const About = () => {
 
 
     // Definition of a variable 
-    const a = 'Hello, World!';
+   /* const a = 'Hello, World!';
     const b = 42;
     const c = true;
 
@@ -76,22 +76,22 @@ const About = () => {
      
 
     const arr=[1,2,3,4,5,6];
-   /* const newArr=arr.filter((val)=>{
+    const newArr=arr.filter((val)=>{
         return (val>3);
     })
     console.log('newArr',newArr);*/
     /*const Mapped=arr.map((val)=>{
         return val;
     })
-    console.log('Mapped',Mapped);*/
-
+    console.log('Mapped',Mapped);
+*/
 
     
 
 
     // Ternary operator
     // condition ? expressionIfTrue : expressionIfFalse
-    16 > 17 ? console.log('You can vote') : console.log('You cannot vote, because you are not an adult yet.');
+   /* 16 > 17 ? console.log('You can vote') : console.log('You cannot vote, because you are not an adult yet.');
     25 > 18 ? console.log('You can vote') : console.log('You cannot vote, because you are not an adult yet.');
 
     const passingScore = 75;
@@ -103,7 +103,7 @@ const About = () => {
     (passingScore > 70 && passingScore <= 80) ? console.log('we will plan a trip to Delhi') : console.log('We will not plan a trip to Lucknow.');
     
     const isAdult = age >= 18 ? 'Yes, You can vote' : 'No, you cannot vote, because you are not an adult yet.';
-    console.log('Is Adult:', isAdult);
+    console.log('Is Adult:', isAdult);*/
 
     const Table = () => {
         return (
@@ -118,8 +118,8 @@ const About = () => {
                         <th>Age</th>
                     </tr>
                     </thead>
-                    <tbody>
-                        {/* employeeDetails.map(item => {
+                   {/* <tbody>
+                         employeeDetails.map(item => {
                             return (
                             <tr>
                               <td>  {item.id} </td>
@@ -128,14 +128,14 @@ const About = () => {
                                <td>  {item.age} </td>
                             </tr>
                             )
-                        }) */}
+                        }) 
                     <tr>
                         <td>1</td>
                         <td>John Doe</td>
                         <td>Developer</td>
                         <td>30</td>
                     </tr>
-                    </tbody>
+                    </tbody>*/}
 
                 </table>
 
@@ -169,11 +169,11 @@ const About = () => {
         const [count, setCount] = useState(0);
 
         useEffect(() => {
-            console.log('Counter Mounted');
+        
         }, []); // This useEffect will run only once when the component mounts, because it has an empty dependency array
 
         useEffect(() => {
-            console.log('Counter Updated:', count);
+            alert("welcome");
         }) // This useEffect will run on every render, because it has no dependency array
 
         useEffect(() => {
