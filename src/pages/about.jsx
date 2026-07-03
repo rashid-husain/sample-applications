@@ -184,7 +184,7 @@ const About = () => {
             <Table />
             <WelcomeButton name="Click Me" message="Welcome!" />
             <Counter />
-            <CustomCard name="Rufayada"/>
+            <CustomCard name="Rashid" age="50" role="Senior Developer" />
         </>
     )
 }

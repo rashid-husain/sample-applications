@@ -1,4 +1,5 @@
 import { use, useEffect, useState } from "react";
+import CustomCard from "./common/customCard";
 
 const Blog = () => {
     const [data, setData] = useState([]);
@@ -188,6 +189,8 @@ const Blog = () => {
                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', width: '100%' }}>
                         <p> {filteredData.length < 1 && <span>No filtered posts found.</span>}</p>
                 </div>
+
+                <CustomCard data={data} />
 
             </div>
         </>

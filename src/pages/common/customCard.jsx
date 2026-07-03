@@ -46,6 +46,10 @@ export default function CustomCard(props) {
         setExpanded(!expanded);
     };
 
+    React.useEffect(() => {
+        console.log('CustomCard Props:', props);
+    }, [props]);
+
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardHeader
@@ -78,6 +82,8 @@ export default function CustomCard(props) {
                 </Typography>
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                     {props.name && <p>Card Name: {props.name}</p>}
+                    {props.age && <p>Card Age: {props.age}</p>}
+                    {props.role && <p>Card Role: {props.role}</p>}
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
