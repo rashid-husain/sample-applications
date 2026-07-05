@@ -49,11 +49,12 @@ const FAQ = () => {
     }
 
 
+    const timerDisplay = `${hour}:${minute}:${second}`;
 
 
     return (
         <>
-            <h1> {isPaused ? 'Timer Paused' : 'Timer Start'}:  {hour < 10 ? `0${hour}` : hour}:{minute < 10 ? `0${minute}` : minute}:{second < 10 ? `0${second}` : second}</h1>
+            <h1> {isPaused ? 'Timer Paused' : 'Timer Start'}:  {timerDisplay}</h1>
             <div style={{ display: 'flex', gap: '10px', marginTop: '20px', flexDirection: 'row' }}>
                 {
                     (!running && !isPaused) && <button onClick={handleStart}> Start </button>
