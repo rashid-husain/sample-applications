@@ -1,13 +1,20 @@
    
 import { use, useEffect, useState } from "react";
+import CustomCard from "./common/customCard";
 
 const Blog = () => {
-const [data, setData] = useState([]);
+//const [data, setData] = useState([]);
 const[id,setId]=useState(0);
 const[title,setTitle]=useState('');
 const[body,setBody]=useState('');
 
 
+    const [data, setData] = useState([]);
+    const [idSearch, setIdSearch] = useState('');
+    const [titleSearch, setTitleSearch] = useState('');
+    const [bodySearch, setBodySearch] = useState('');
+
+    const [filteredData, setFilteredData] = useState([]);
 
 
     // Objects definition:
@@ -48,14 +55,57 @@ const[body,setBody]=useState('');
         fetch('https://jsonplaceholder.typicode.com/posts')
             .then(response => response.json())
             .then(data => {
-                setData(data);
+                
                // console.log('Data:', data);
+
+                setFilteredData(data);
+
             }).catch(error => {
                 console.error('Error fetching data:', error);
             }
             )
     }, []);
 
+    useEffect(() => {
+        setFilteredData(data);
+        filterData();
+        console.log('Searched data:', idSearch, titleSearch, bodySearch);
+    }, [idSearch, titleSearch, bodySearch]);
+
+    // const filterData = () => {
+    //     const filtered = data.filter(item => (item.id.toString().includes(idSearch) ||
+    //         item.title.toLowerCase().includes(titleSearch.toLowerCase()) ||
+    //         item.body.toLowerCase().includes(bodySearch.toLowerCase())));
+
+    //     setFilteredData(filtered);
+    // };
+
+
+    const filterData = () => {
+        const filtered = data.filter(item => (item.title.toString().includes(titleSearch)));
+        setFilteredData(filtered);
+
+    };
+
+
+    // multiple conditions (AND logic) for filtering for multiple search inputs (id, title, body) with case-insensitive search for title and body
+    // const filterData = () => {
+    //     const filtered = data.filter(item => {
+    //         // 1. Check ID (safely handle null/undefined)
+    //         const matchesId = item.id ? item.id.toString().includes(idSearch) : true;
+
+    //         // 2. Check Title (safely handle case-insensitivity)
+    //         const matchesTitle = item.title ? item.title.toLowerCase().includes(titleSearch.toLowerCase()) : true;
+
+    //         // 3. Check Body
+    //         const matchesBody = item.body ? item.body.toLowerCase().includes(bodySearch.toLowerCase()) : true;
+
+    //         // All conditions must be met (AND logic)
+    //         return matchesId && matchesTitle && matchesBody;
+    //     });
+
+    //     setFilteredData(filtered);
+    // };
 
     // fetch('https://jsonplaceholder.typicode.com/photos')
     //     .then(response => response.json())
@@ -128,6 +178,20 @@ const[body,setBody]=useState('');
                         
                          
                         {data.map((item, index) => {
+                         return(
+                        <tr>
+                            <td>
+                                <input type="text" placeholder="Id search" value={idSearch} onChange={(e) => setIdSearch(e.target.value)} style={{ width: '90%', height:"30px", border: '1px solid #ccc', borderRadius: '4px', padding: '2px' }} />
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Title search" value={titleSearch} onChange={(e) => setTitleSearch(e.target.value)} style={{ width: '90%', height:"30px", border: '1px solid #ccc', borderRadius: '4px', padding: '2px' }} />
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Body search" value={bodySearch} onChange={(e) => setBodySearch(e.target.value)} style={{ width: '90%', height:"30px", border: '1px solid #ccc', borderRadius: '4px', padding: '2px' }} />
+                            </td>
+                        </tr>)})}
+                        {filteredData.map((item, index) => {
+
                             return (
                                 <tr key={index}>
                                     <td>{item.id}</td>
@@ -138,6 +202,13 @@ const[body,setBody]=useState('');
                         })}
                     </tbody>
                 </table>
+
+                <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', width: '100%' }}>
+                        <p> {filteredData.length < 1 && <span>No filtered posts found.</span>}</p>
+                </div>
+
+                <CustomCard data={data} />
+
             </div>
         </>
     )

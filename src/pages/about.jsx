@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import CustomCard from "./common/customCard";
 
 const About = () => {
 
@@ -197,6 +198,7 @@ const About = () => {
             <Table />
             <WelcomeButton name="Click Me" message="Welcome!" />
             <Counter />
+            <CustomCard name="Rashid" age="50" role="Senior Developer" />
         </>
     )
 }
