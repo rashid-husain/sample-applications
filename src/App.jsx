@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react'
 import './App.css'
 import'./header.css'
-import './pages/support.css';
+//import './pages/support.css';
 import Header from './header'
 import About from './pages/about';
 import Contact from './pages/contact';
