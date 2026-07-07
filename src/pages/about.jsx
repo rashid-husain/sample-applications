@@ -193,6 +193,30 @@ const About = () => {
     
     return (
         <>
+
+        <form style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '20px' }}>
+
+            <input type="text" placeholder='Enter your name' />
+            <input type="email" placeholder='Enter your email' />
+            <textarea placeholder='Enter your message'></textarea>
+            <input type="file" />
+            <input type="checkbox" /> I agree to the terms and conditions
+            <input type="radio" name="gender" value="male" /> Male
+            <input type="radio" name="gender" value="female" /> Female
+            <input type="number" placeholder='Enter your age' />
+            <input type="date" />
+            <input type="time" />   
+            <input type="color" />
+            <input type="range" min="0" max="100" />
+            <input type="url" placeholder='Enter your website' />
+            <input type="tel" placeholder='Enter your phone number' />
+            <input type="search" placeholder='Search...' />
+            <input type="password" placeholder='Enter your password' />
+            <input type="hidden" value="hiddenValue" />
+            <button type="reset">Reset</button>
+            <button type="button" onClick={() => alert('Button clicked!')}>Click Me</button>
+            <button type="submit">Submit Form</button>
+            </form>
             <h1>do you wants to know the purpose of this website?</h1>
             
             <Table />
