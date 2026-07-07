@@ -27,26 +27,29 @@ const Contact = () => {
     const [questionsSet, setQuestionsSet] = useState(questions);
     const [selectedOptions, setSelectedOptions] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [second, setSecond] = useState(3);
-    const [minute, setMinute] = useState(0);
+    const [second, setSecond] = useState(60);
+    const [minute, setMinute] = useState(9);
     const [showWarningAlert, setShowWarningAlert] = useState(false);
    
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            setSecond(prevSecond => prevSecond - 1);
-            if (second === 0) {
+            
+            if(minute === 0 && second === 0){
+                clearTimeout(timer);
+            }
+            if(minute > 0 || second > 0){
+                setSecond(prevSecond => prevSecond - 1);
+            }
+            
+            if (second === 0 && minute > 0) {
                 setMinute(prevMinute => prevMinute - 1);
                 setSecond(59);
             }
 
-            if(minute === 2 && second === 0) {
+            if (minute === 2 && second === 0) {
                 setShowWarningAlert(true);
             }
-            if(minute === 0 && second == 0){
-              clearTimeout(timer);
-            }
-
         }, 1000);
 
         return () => clearTimeout(timer);
