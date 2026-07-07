@@ -27,9 +27,10 @@ const Contact = () => {
     const [questionsSet, setQuestionsSet] = useState(questions);
     const [selectedOptions, setSelectedOptions] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [second, setSecond] = useState(60);
-    const [minute, setMinute] = useState(2);
+    const [second, setSecond] = useState(3);
+    const [minute, setMinute] = useState(0);
     const [showWarningAlert, setShowWarningAlert] = useState(false);
+   
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -42,11 +43,15 @@ const Contact = () => {
             if(minute === 2 && second === 0) {
                 setShowWarningAlert(true);
             }
+            if(minute === 0 && second == 0){
+              clearTimeout(timer);
+            }
 
         }, 1000);
 
         return () => clearTimeout(timer);
     }, [second, minute]);
+
 
     const handleQuizSubmit = () => {
         setIsSubmitted(true);
@@ -71,14 +76,18 @@ const Contact = () => {
 
     return(
         <>
-            <div style={{ display: 'flex', gap: '10px', marginTop: '20px', flexDirection: 'row', justifyContent: 'space-between' }}>
-                <h1>Quiz</h1> <br />
-                <h1>Timer: {minute < 10 ? `0${minute}` : minute}:{second < 10 ? `0${second}` : second}</h1><br />
+            
+
+            <div style={{ textAlign:'center', gap: '10px', marginTop: '20px',  justifyContent: 'space-between' }}>
+                <h1>Quiz</h1> 
+                <h1>Timer: {minute < 10 ? `0${minute}` : minute}:{second < 10 ? `0${second}` : second}</h1>
                 {
                     showWarningAlert && <h5 style={{ color: "#ff4d4d" }}>Your Time is going to run out!</h5> 
                 }
             </div>
-            <div>
+            
+            
+              <div>
                 {questionsSet.map((item, index) => (
                     <div key={item.id} style={{border: '1px solid gray', borderRadius: '5px', padding: '10px', marginBottom: '10px'}}>
                         <p style={{ fontWeight: 'bold', display: 'block' }}>{index + 1}. {item.question}</p>
@@ -146,7 +155,7 @@ const Contact = () => {
                         <ListItemButton><p> Unanswered Questions: {questionsSet.length - Object.keys(selectedOptions).length} </p></ListItemButton>
                         <ListItemButton><p> Total Questions: {questionsSet.length} </p></ListItemButton>
                         <ListItemButton><p> Result Status: {Object.keys(selectedOptions).length === questionsSet.length ? "Completed" : "In Progress"} </p></ListItemButton>
-                        <ListItemButton><p> Score: {Object.keys(selectedOptions).filter(key => selectedOptions[key] === questionsSet.find(q => q.id === parseInt(key)).answer).length} / {questionsSet.length} </p></ListItemButton>
+                        <ListItemButton style={{border:"1px",borderRadius:"10px"}}><p> Score: {Object.keys(selectedOptions).filter(key => selectedOptions[key] === questionsSet.find(q => q.id === parseInt(key)).answer).length} / {questionsSet.length} </p></ListItemButton>
           
         </List>
       </Dialog>

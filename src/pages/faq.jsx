@@ -52,22 +52,25 @@ const FAQ = () => {
 
     return (
         <>
+        <div style={{  gap: '10px', marginTop: '20px',margin:'10px' ,padding:'10px',border:'1px solid black',}}> 
+                
             <h1> {isPaused ? 'Timer Paused' : 'Timer Start'}:  {hour < 10 ? `0${hour}` : hour}:{minute < 10 ? `0${minute}` : minute}:{second < 10 ? `0${second}` : second}</h1>
-            <div style={{ display: 'flex', gap: '10px', marginTop: '20px', flexDirection: 'row' }}>
+            <div style={{ display: 'flex', gap: '10px', marginTop: '20px', flexDirection: 'row',margin:'10px' ,padding:'5px',alignText:'center'}}>
                 {
-                    (!running && !isPaused) && <button onClick={handleStart}> Start </button>
+                    (!running && !isPaused) && <button onClick={handleStart} style={{padding:'10px',borderRadius:'10px',width:'80px',}}> Start </button>
                 }
 
                 {
-                    running && <button onClick={handlePause}> Pause </button>
+                    running && <button onClick={handlePause} style={{padding:'10px',borderRadius:'10px',width:'80px'}}> Pause </button>
                 }
 
                 {
-                    isPaused && <button onClick={handleResume}> Resume </button>
+                    isPaused && <button onClick={handleResume} style={{padding:'10px',borderRadius:'10px',width:'80px'}}> Resume </button>
                 }
                 
-                <button onClick={handleReset}> Reset </button>
+                <button onClick={handleReset} style={{padding:'10px',borderRadius:'10px',width:'78px'}}> Reset </button>
             </div>
+     </div>
 
         </>
     )
