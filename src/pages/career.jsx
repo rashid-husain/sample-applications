@@ -69,8 +69,9 @@ const Career=()=>{
                  padding:'5px' ,
                  top_margin:'20px',
                  backgroundColor:'gray'
-                 }}><h3 style={{color:'black'}}><b>My Information</b></h3>
-            <label style={{color:'white',}}> Name:</label>
+                 }}>
+                    <h3 style={{color:'black'}}><b>My Information</b></h3>
+            <label style={{color:'white'}}> Name:</label>
             <input type="text" value={name} onChange={(e)=>setName(e.target.value)}></input>
             <label style={{color:'white',height:'30px'}}>Roll No:</label>
             <input type="Number" value={rollno} onChange={(e)=>setRollNo(e.target.value)} />
