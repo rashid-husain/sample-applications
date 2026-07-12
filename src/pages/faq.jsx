@@ -8,6 +8,16 @@ const FAQ = () => {
     const [running, setRunning] = useState(false);
     const [isPaused, setIsPaused] = useState(false);
 
+    const temp = localStorage.getItem('SubmittedObject');
+    // localStorage.clear();
+    // sessionStorage.clear()
+
+    const [getData, setData] = useState({} || JSON.parse(temp));
+
+    useEffect(() => {
+        console.log('Retrived Data: ', temp);
+    }, []);
+
     useEffect(() => {
         if (!running) return;
         // if (running == false) return;
@@ -69,7 +79,25 @@ const FAQ = () => {
                 }
                 
                 <button onClick={handleReset} style={{padding:'10px',borderRadius:'10px',width:'78px'}}> Reset </button>
-            </div>
+                </div>
+                
+                <div>
+                    <h2> Data Retrived from Home using localStorage </h2>
+                    <div>
+                        <span style={{ display: 'block' }}>
+                            Fist Name: {getData.firstName}
+                        </span>
+                        <span style={{ display: 'block' }}>
+                            Last Name: {getData.lastName}
+                        </span>
+                        <span style={{ display: 'block' }}>
+                            Email: {getData.email}
+                        </span>
+                        <span style={{ display: 'block' }}>
+                            Contact Number: {getData.contact}
+                        </span>
+                    </div>
+                </div>
      </div>
 
         </>

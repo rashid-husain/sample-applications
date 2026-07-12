@@ -66,8 +66,19 @@ const Home = () => {
   //   setFirstName(e.target.value);
   //   }
 
-
   const handleSubmit = (e) => {
+    const tempObject = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      contact: contact
+    }
+
+    localStorage.setItem('SubmittedObject', JSON.stringify(tempObject));
+    // sessionStorage.setItem('SubmittedObject', JSON.stringify(tempObject));
+
+    alert('Data Successfully saved in Local Storage')
+
     e.preventDefault();
     setDisplay(true);
 
