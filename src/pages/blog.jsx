@@ -1,12 +1,14 @@
-   
-import { use, useEffect, useState } from "react";
+
+import { use, useContext, useEffect, useState } from "react";
 import CustomCard from "./common/customCard";
+import { AppContext } from "../context/app.context";
 
 const Blog = () => {
-//const [data, setData] = useState([]);
-const[id,setId]=useState(0);
-const[title,setTitle]=useState('');
-const[body,setBody]=useState('');
+    const { name, setName, getData } = useContext(AppContext || {});
+    //const [data, setData] = useState([]);
+    const [id, setId] = useState(0);
+    const [title, setTitle] = useState('');
+    const [body, setBody] = useState('');
 
 
     const [data, setData] = useState([]);
@@ -16,55 +18,61 @@ const[body,setBody]=useState('');
 
     const [filteredData, setFilteredData] = useState([]);
 
+    useEffect(() => {
+        console.log('Blog Component Mounted: ', name)
+        getData();
+    }, [])
+
 
     // Objects definition:
     // create object
-   /* const student = {
-        name: "John",
-        age: 30,
-        city: "New York",
-        // method
-        greet: function () {
-            console.log(`Hello, my name is ${student.name} and I am ${student.age} years old.`);
-
-        }
-    }
-    const student2 = [
-        {
-            name: "John",
-            age: 30,
-            city: "New York",
-        },
-        {
-            name: "Jane",
-            age: 25,
-            city: "Los Angeles",
-        },
-        {
-            name: "Mike",
-            age: 35,
-            city: "Chicago",
-        }
-    ]*/
+    /* const student = {
+         name: "John",
+         age: 30,
+         city: "New York",
+         // method
+         greet: function () {
+             console.log(`Hello, my name is ${student.name} and I am ${student.age} years old.`);
+ 
+         }
+     }
+     const student2 = [
+         {
+             name: "John",
+             age: 30,
+             city: "New York",
+         },
+         {
+             name: "Jane",
+             age: 25,
+             city: "Los Angeles",
+         },
+         {
+             name: "Mike",
+             age: 35,
+             city: "Chicago",
+         }
+     ]*/
 
     // const name = "John Doe";
     // const age = 30;
     // const city = "New York";
 
     useEffect(() => {
+        getDatafromApi();
+    }, []);
+
+    const getDatafromApi = () => {
         fetch('https://jsonplaceholder.typicode.com/posts')
             .then(response => response.json())
             .then(data => {
-                
-               // console.log('Data:', data);
-
+                // console.log('Data:', data);
                 setFilteredData(data);
-
             }).catch(error => {
                 console.error('Error fetching data:', error);
             }
             )
-    }, []);
+    }
 
     useEffect(() => {
         setFilteredData(data);
@@ -168,28 +176,29 @@ const[body,setBody]=useState('');
                 <table cellPadding={2} cellSpacing={2} border={1} width="100%" border-radius="10px">
                     <thead>
                         <tr>
-                            <th>Id:<input  type="number" value={data.id} onChange={(e)=>setId(e.target.value)} placeholder="id" style={{width:"50%",padding:"5px",cursor:"pointer",background_color:'gray'}}></input></th>
-                            <th>Title:<input type="text" value={data.title} onChange={(e)=>setTitle(e.target.value)} placeholder="title" style={{ width:"80%" ,padding:"5px",border_radius:"2px"}}></input></th>
-                            <th>Body:<input type="text" value={data.body} onChange={(e)=>setBody(e.target.value)} placeholder="body" style={{width:"80%" ,padding:"5px",border_radius:"5px"}}></input></th>
+                            <th>Id:<input type="number" value={data.id} onChange={(e) => setId(e.target.value)} placeholder="id" style={{ width: "50%", padding: "5px", cursor: "pointer", background_color: 'gray' }}></input></th>
+                            <th>Title:<input type="text" value={data.title} onChange={(e) => setTitle(e.target.value)} placeholder="title" style={{ width: "80%", padding: "5px", border_radius: "2px" }}></input></th>
+                            <th>Body:<input type="text" value={data.body} onChange={(e) => setBody(e.target.value)} placeholder="body" style={{ width: "80%", padding: "5px", border_radius: "5px" }}></input></th>
                         </tr>
                         <tr></tr>
                     </thead>
                     <tbody>
-                        
-                         
+
+
                         {data.map((item, index) => {
-                         return(
-                        <tr>
-                            <td>
-                                <input type="text" placeholder="Id search" value={idSearch} onChange={(e) => setIdSearch(e.target.value)} style={{ width: '90%', height:"30px", border: '1px solid #ccc', borderRadius: '4px', padding: '2px' }} />
-                            </td>
-                            <td>
-                                <input type="text" placeholder="Title search" value={titleSearch} onChange={(e) => setTitleSearch(e.target.value)} style={{ width: '90%', height:"30px", border: '1px solid #ccc', borderRadius: '4px', padding: '2px' }} />
-                            </td>
-                            <td>
-                                <input type="text" placeholder="Body search" value={bodySearch} onChange={(e) => setBodySearch(e.target.value)} style={{ width: '90%', height:"30px", border: '1px solid #ccc', borderRadius: '4px', padding: '2px' }} />
-                            </td>
-                        </tr>)})}
+                            return (
+                                <tr>
+                                    <td>
+                                        <input type="text" placeholder="Id search" value={idSearch} onChange={(e) => setIdSearch(e.target.value)} style={{ width: '90%', height: "30px", border: '1px solid #ccc', borderRadius: '4px', padding: '2px' }} />
+                                    </td>
+                                    <td>
+                                        <input type="text" placeholder="Title search" value={titleSearch} onChange={(e) => setTitleSearch(e.target.value)} style={{ width: '90%', height: "30px", border: '1px solid #ccc', borderRadius: '4px', padding: '2px' }} />
+                                    </td>
+                                    <td>
+                                        <input type="text" placeholder="Body search" value={bodySearch} onChange={(e) => setBodySearch(e.target.value)} style={{ width: '90%', height: "30px", border: '1px solid #ccc', borderRadius: '4px', padding: '2px' }} />
+                                    </td>
+                                </tr>)
+                        })}
                         {filteredData.map((item, index) => {
 
                             return (
@@ -204,7 +213,7 @@ const[body,setBody]=useState('');
                 </table>
 
                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', width: '100%' }}>
-                        <p> {filteredData.length < 1 && <span>No filtered posts found.</span>}</p>
+                    <p> {filteredData.length < 1 && <span>No filtered posts found.</span>}</p>
                 </div>
 
                 <CustomCard data={data} />

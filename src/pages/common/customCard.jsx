@@ -78,12 +78,12 @@ export default function CustomCard(props) {
                     This impressive paella is a perfect party dish and a fun meal to cook
                     together with your guests. Add 1 cup of frozen peas along with the mussels,
                     if you like.
-                    
+
                 </Typography>
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    {props.name && <p>Card Name: {props.name}</p>}
-                    {props.age && <p>Card Age: {props.age}</p>}
-                    {props.role && <p>Card Role: {props.role}</p>}
+                    {props.name && 'Card Name:'} {props.name}
+                    {props.age && 'Card Age:'} {props.age}
+                    {props.role && 'Card Role:'} {props.role}
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
